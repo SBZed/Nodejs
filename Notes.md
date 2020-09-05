@@ -170,7 +170,7 @@ const connection = mysql.createConnection({
   - Install MongoDB in your pc
   - After that to run mongo server
   ```sh
-  mongod --dbpath=data --bind_ip 127.0.0.1
+  mongod --dbpath="D:\Full Stack\mongodb\data" --bind_ip 127.0.0.1
   mongo
   ```
   - then install mongoDB driver in nodejs
