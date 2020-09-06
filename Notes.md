@@ -178,3 +178,68 @@ const connection = mysql.createConnection({
   npm install mongodb --save
   npm install assert --save
   ```
+
+### 3.4 Mongoose ODM
+
+- Adds sturcture to MongoDB documents through schema
+- Mongoose internally use MongoDB Driver
+- Means you can use all MongoDB driver method through Mongoose modules
+- people refers as:
+  - Object Data Model (ODM)
+  - Object Document Mapping (ODM)
+  - Object relational Mapping (ORM)
+- **Mongoose Schema**
+  - Structure of the data to be stored
+  - Defines all the fields of your document and their types (Can do validation)
+  - Schema types:
+    - string
+    - number
+    - date
+    - buffer
+    - boolean
+    - Mixed
+    - ObjectId
+    - Array
+  - Schema is used to create a model function
+  - Schema can be nested
+- **Process**
+
+  - Define the schema in Nodejs application
+
+  ```js
+  const mongoose = require('mongoose');
+  const Schema = mongoose.Schema;
+
+  const dishSchema = new Schema(
+  	{
+  		name: {
+  			type: String,
+  			required: true,
+  			unique: true,
+  		},
+  		description: {
+  			type: String,
+  			required: true,
+  		},
+  	},
+  	{
+  		timestamps: true,
+  	}
+  );
+  ```
+
+  - NOTE: Mongoose can automatically createdAt, updatedAt like field in documents by using `timestamps: true` parameter
+  - Create a model from that schema
+
+  ```js
+  var Dishes = mongoose.model('Dish', dishSchema);
+  ```
+
+  - you will also give a name to the model e.g. Dish
+  - When you use this model in our node application where we are making use of Mongoose, then this will be transformed and mapped into a collection in MongoDB database.
+  - Mongoose automatically construct the plural of that name and then give the collection the name, which is the plural of the model name that you specify in this example here.
+  - Then exports this model
+
+  ```js
+  module.exports = Dishes;
+  ```
