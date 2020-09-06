@@ -4,21 +4,23 @@ get http://localhost:3000/index.html
 ###
 get http://localhost:3000/aboutus.html
 ###
+# Dishes API
+###
 get http://localhost:3000/dishes
 ###
-get http://localhost:3000/dishes/5f54af56c7d0101d84be03ae
+get http://localhost:3000/dishes/5f5501c195e288089cea7565
 ###
 post http://localhost:3000/dishes
 Content-Type: application/json
 
-{
-      "name": "Zucchipakoda",
-      "image": "images/zucchipakoda.png",
+ {
+	  "name": "Vadonut",
+      "image": "images/vadonut.png",
       "category": "appetizer",
-      "label": "",
+      "label": "New",
       "price": "1.99",
       "featured": "false",
-      "description": "Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce",
+      "description": "A quintessential ConFusion experience, is it a vada or is it a donut?",
       "comments": [
         {
           "rating": 5,
@@ -51,14 +53,53 @@ Content-Type: application/json
           "date": "2011-12-02T17:57:28.556094Z"
         }
       ]
-    }
+}
 ###
-put http://localhost:3000/dishes
+post http://localhost:3000/dishes/5f5501c195e288089cea7565
 Content-Type: application/json
 ###
+put http://localhost:3000/dishes
+###
+put http://localhost:3000/dishes/5f5501c195e288089cea7565
+Content-Type: application/json
+{
+	"label": "Hot"
+}
+###
+delete http://localhost:3000/dishes/5f54af56c7d0101d84be03ae
+###
 delete http://localhost:3000/dishes
-###
 
 ###
-
+# Comments API
 ###
+get http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments
+###
+get http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments/5f550fc64c7c5f0ef819eb0a
+###
+post http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments
+Content-Type: application/json
+
+{
+    "rating": 1,
+    "comment": "Test comment",
+    "author": "Test user",
+    "date": "2020-09-06T16:30:28.889Z"
+}
+###
+post http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments/5f550fc64c7c5f0ef819eb0a
+Content-Type: application/json
+###
+put http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments
+###
+put http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments/5f550fc64c7c5f0ef819eb0a
+Content-Type: application/json
+
+{
+    "rating": 2,
+    "comment": "Updated Test comment"
+}
+###
+delete http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments/5f550fc64c7c5f0ef819eb0a
+###
+delete http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments
