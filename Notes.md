@@ -3,8 +3,19 @@
 - Javascript used for server side.
 
 1. Express
+	1.1. Structure of Express file
+	1.2. Routing
+	1.3. Applying Css
+	1.4. EJS
+	1.5. Advantage of EJS
+	1.6. Middlewares
 2. REST
+	2.1. Stateless Server
 3. Database
+	3.1. SQL Databases
+	3.2. NoSQL Databases
+	3.3. MongoDB
+	3.4. Mongoose ODM
 
 ## 1. Express
 
@@ -22,7 +33,7 @@ const app = express();
 
 - To start the server, we need to add the listen method to app.js, then run it in the terminal using the following command: node `file_name`.
 
-### Structure of Express file
+### 1.1 Structure of Express file
 
 - To review, the typical structure of an Express.js app fig(which is usually a server.js or app.js file) roughly consists of these parts, in the order shown:
 
@@ -33,7 +44,7 @@ const app = express();
 5. Routes : A set of statements that defines server routes, endpoints, and pages
 6. Bootup : A set of statements that starts the server and makes it listen on a specific port for incoming requests
 
-## Routing
+### 1.2 Routing
 
 - Determining how the app responds to a request to a particular URL is called routing.
 
@@ -48,7 +59,7 @@ app.get('/top', (req, res) => {
 
 - You can specify which view file to show on the browser using the res.render function.
 
-## Applying Css
+### 1.3 Applying Css
 
 - store Css and image in folder
 - and use below line to access in code:
@@ -57,26 +68,38 @@ app.get('/top', (req, res) => {
 app.use(express.static('public')))
 ```
 
-## EJS
+### 1.4 EJS
 
 - Embedded JavaScript
 - EJS is a Node.js package that lets you embed JavaScript code in your HTML file.
-
 ```sh
 npm install ejs
 ```
-
 - To embed JavaScript code, we can use <% %> or <%= %>.
 - <% %> is used in cases like defining a variable as it won't be displayed.
 - <%= %>, on the other hand, is used for cases like printing a variable as it will be displayed.
   ![<% %>](https://d2aj9sy12tbpym.cloudfront.net/progate/shared/images/slide/nodejs/study/1/1580362864374.png)
   ![<%= %>](https://d2aj9sy12tbpym.cloudfront.net/progate/shared/images/slide/nodejs/study/1/1580362877243.png)
 
-### Advantage of EJS
+### 1.5 Advantage of EJS
 
 - With EJS, you will be able to use the forEach method, which will make the code much simpler and easier to manage than plain HTML.
   ![using HTML](https://d2aj9sy12tbpym.cloudfront.net/progate/shared/images/slide/nodejs/study/1/1580362891591.png)
   ![using EJS](https://d2aj9sy12tbpym.cloudfront.net/progate/shared/images/slide/nodejs/study/1/1580362898355.png)
+
+### 1.6. Middlewares
+ - **Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.**
+ - Middleware literally means anything you put in the middle of one layer of the software and another
+ - Express middleware are functions that execute during the lifecycle of a request to the Express server.
+ - Each middleware has access to the HTTP request and response for each route (or path) it’s attached to.
+ Middleware functions can perform the following tasks:
+	- Execute any code.
+	- Make changes to the request and the response objects.
+	- End the request-response cycle.
+	- Call the next middleware in the stack.
+ ![Middleware]("./Resources/Imgs/Middleware.PNG")
+```js
+```
 
 ## 2. REST (Representational Statr Transfer)
 
@@ -95,7 +118,7 @@ npm install ejs
   2.  Verb - GET, PUT, POST, DELETE
   3.  Representations: XML/JSON
 
-## Stateless Server
+#### 2.1 Stateless Server
 
 - Server side should not track client state, if server does those thing server WILL NOT BE SCALABLE.
 - for scalable implementation server on serve side should be stateless
@@ -153,7 +176,7 @@ const connection = mysql.createConnection({
   - information about type of field value
   - Additional primitives types not supported by raw json like UTC date time, raw binary, ObjectId
 - MongoDB ObjectId:
-  - Every document must have "\_id" (unique primary field)
+  - Every document must have "_id" (unique primary field)
   - Default ObjectId created by Mongo
   - ObjectId is a 12 byte field
   ***
@@ -170,7 +193,7 @@ const connection = mysql.createConnection({
   - Install MongoDB in your pc
   - After that to run mongo server
   ```sh
-  mongod --dbpath="D:\Full Stack\mongodb\data" --bind_ip 127.0.0.1
+  mongod --dbpath="D:\Learning\Full-Stack\mongodb\data" --bind_ip 127.0.0.1
   mongo
   ```
   - then install mongoDB driver in nodejs
