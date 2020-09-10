@@ -1,16 +1,16 @@
 {
-	"name": "node-express",
+	"name": "node-mongo",
 	"version": "1.0.0",
-	"description": "Node Express Examples",
+	"description": "Node MongoDB Example",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node index"
 	},
-	"author": "Saurabh Zinjad",
+	"author": "Saurabh Zinjad <zinjadsaurabh1997@gmail.com>",
 	"license": "ISC",
 	"dependencies": {
-		"express": "^4.17.1",
-		"morgan": "^1.9.0"
+		"assert": "^2.0.0",
+		"mongodb": "^3.6.1"
 	}
 }

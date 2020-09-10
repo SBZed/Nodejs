@@ -4,3 +4,102 @@ get http://localhost:3000/index.html
 ###
 get http://localhost:3000/aboutus.html
 ###
+# Dishes API
+###
+get http://localhost:3000/dishes
+###
+get http://localhost:3000/dishes/5f5501c195e288089cea7565
+###
+post http://localhost:3000/dishes
+Content-Type: application/json
+
+ {
+	  "name": "Vadonut",
+      "image": "images/vadonut.png",
+      "category": "appetizer",
+      "label": "New",
+      "price": "1.99",
+      "featured": "false",
+      "description": "A quintessential ConFusion experience, is it a vada or is it a donut?",
+      "comments": [
+        {
+          "rating": 5,
+          "comment": "Imagine all the eatables, living in conFusion!",
+          "author": "John Lemon",
+          "date": "2012-10-16T17:57:28.556094Z"
+        },
+        {
+          "rating": 4,
+          "comment": "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+          "author": "Paul McVites",
+          "date": "2014-09-05T17:57:28.556094Z"
+        },
+        {
+          "rating": 3,
+          "comment": "Eat it, just eat it!",
+          "author": "Michael Jaikishan",
+          "date": "2015-02-13T17:57:28.556094Z"
+        },
+        {
+          "rating": 4,
+          "comment": "Ultimate, Reaching for the stars!",
+          "author": "Ringo Starry",
+          "date": "2013-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": 2,
+          "comment": "It's your birthday, we're gonna party!",
+          "author": "25 Cent",
+          "date": "2011-12-02T17:57:28.556094Z"
+        }
+      ]
+}
+###
+post http://localhost:3000/dishes/5f5501c195e288089cea7565
+Content-Type: application/json
+###
+put http://localhost:3000/dishes
+###
+put http://localhost:3000/dishes/5f5501c195e288089cea7565
+Content-Type: application/json
+{
+	"label": "Hot"
+}
+###
+delete http://localhost:3000/dishes/5f54af56c7d0101d84be03ae
+###
+delete http://localhost:3000/dishes
+
+###
+# Comments API
+###
+get http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments
+###
+get http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments/5f550fc64c7c5f0ef819eb0a
+###
+post http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments
+Content-Type: application/json
+
+{
+    "rating": 1,
+    "comment": "Test comment",
+    "author": "Test user",
+    "date": "2020-09-06T16:30:28.889Z"
+}
+###
+post http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments/5f550fc64c7c5f0ef819eb0a
+Content-Type: application/json
+###
+put http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments
+###
+put http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments/5f550fc64c7c5f0ef819eb0a
+Content-Type: application/json
+
+{
+    "rating": 2,
+    "comment": "Updated Test comment"
+}
+###
+delete http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments/5f550fc64c7c5f0ef819eb0a
+###
+delete http://localhost:3000/dishes/5f550ea44c7c5f0ef819eb04/comments
