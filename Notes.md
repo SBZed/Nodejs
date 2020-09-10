@@ -89,15 +89,17 @@ npm install ejs
 
 ### 1.6. Middlewares
  - **Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.**
- ```js
-// Middleware
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(auth);
-app.use(express.static(path.join(__dirname, 'public')));
+
+```js
+	// Middleware
+	app.use(logger('dev'));
+	app.use(express.json());
+	app.use(express.urlencoded({ extended: false }));
+	app.use(cookieParser());
+	app.use(auth);
+	app.use(express.static(path.join(__dirname, 'public')));
 ```
+
  - Middleware literally means anything you put in the middle of one layer of the software and another
  - Express middleware are functions that execute during the lifecycle of a request to the Express server.
  - Each middleware has access to the HTTP request and response for each route (or path) it’s attached to.
