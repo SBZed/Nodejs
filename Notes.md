@@ -22,14 +22,14 @@
 - It is a framework for developing web apps with Node.js.
   Using frameworks helps make development a lot more efficient.
 
-	```sh
-	npm install express
-	```
+```sh
+npm install express
+```
 
-	```js
-	const express = require('express');
-	const app = express();
-	```
+```js
+const express = require('express');
+const app = express();
+```
 
 - To start the server, we need to add the listen method to app.js, then run it in the terminal using the following command: node `file_name`.
 
@@ -48,14 +48,14 @@
 
 - Determining how the app responds to a request to a particular URL is called routing.
 
-	```js
-	// /top : page we need to access
-	// () => {} : Route Handler/ route handling function which take two parameters req(requst), res(response)
-	app.get('/top', (req, res) => {
-		// Display the top page
-		res.render('top.ejs');
-	});
-	```
+```js
+// /top : page we need to access
+// () => {} : Route Handler/ route handling function which take two parameters req(requst), res(response)
+app.get('/top', (req, res) => {
+	// Display the top page
+	res.render('top.ejs');
+});
+```
 
 - You can specify which view file to show on the browser using the res.render function.
 
@@ -64,17 +64,17 @@
 - store Css and image in folder
 - and use below line to access in code:
 
-	```js
-	app.use(express.static('public')))
-	```
+```js
+app.use(express.static('public')))
+```
 
 ### 1.4 EJS
 
 - Embedded JavaScript
 - EJS is a Node.js package that lets you embed JavaScript code in your HTML file.
-	```sh
-	npm install ejs
-	```
+```sh
+npm install ejs
+```
 - To embed JavaScript code, we can use <% %> or <%= %>.
 - <% %> is used in cases like defining a variable as it won't be displayed.
 - <%= %>, on the other hand, is used for cases like printing a variable as it will be displayed.
@@ -90,15 +90,15 @@
 ### 1.6. Middlewares
  - **Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.**
 
-	```js
-		// Middleware
-		app.use(logger('dev'));
-		app.use(express.json());
-		app.use(express.urlencoded({ extended: false }));
-		app.use(cookieParser());
-		app.use(auth);
-		app.use(express.static(path.join(__dirname, 'public')));
-	```
+```js
+	// Middleware
+	app.use(logger('dev'));
+	app.use(express.json());
+	app.use(express.urlencoded({ extended: false }));
+	app.use(cookieParser());
+	app.use(auth);
+	app.use(express.static(path.join(__dirname, 'public')));
+```
 
  - Middleware literally means anything you put in the middle of one layer of the software and another
  - Express middleware are functions that execute during the lifecycle of a request to the Express server.
@@ -139,20 +139,20 @@
 - Structural database, tabular
 - like MySQL
 
-	```sh
-	npm install mysql
-	```
+```sh
+npm install mysql
+```
 
 #### Setup
 
 - We'll store the required information in a constant called connection
 
-	```js
-	const mysql = require('mysql');
-	const connection = mysql.createConnection({
-		// database name, password,etc
-	});
-	```
+```js
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+	// database name, password,etc
+});
+```
 
 ### 3.2 NoSQL Databases
 
@@ -238,40 +238,40 @@
 
   - Define the schema in Nodejs application
 
-	```js
-	const mongoose = require('mongoose');
-	const Schema = mongoose.Schema;
+  ```js
+  const mongoose = require('mongoose');
+  const Schema = mongoose.Schema;
 
-	const dishSchema = new Schema(
-		{
-			name: {
-				type: String,
-				required: true,
-				unique: true,
-			},
-			description: {
-				type: String,
-				required: true,
-			},
-		},
-		{
-			timestamps: true,
-		}
-	);
-	```
+  const dishSchema = new Schema(
+  	{
+  		name: {
+  			type: String,
+  			required: true,
+  			unique: true,
+  		},
+  		description: {
+  			type: String,
+  			required: true,
+  		},
+  	},
+  	{
+  		timestamps: true,
+  	}
+  );
+  ```
 
   - NOTE: Mongoose can automatically createdAt, updatedAt like field in documents by using `timestamps: true` parameter
   - Create a model from that schema
 
-	```js
-	var Dishes = mongoose.model('Dish', dishSchema);
-	```
+  ```js
+  var Dishes = mongoose.model('Dish', dishSchema);
+  ```
 
   - you will also give a name to the model e.g. Dish
   - When you use this model in our node application where we are making use of Mongoose, then this will be transformed and mapped into a collection in MongoDB database.
   - Mongoose automatically construct the plural of that name and then give the collection the name, which is the plural of the model name that you specify in this example here.
   - Then exports this model
 
-	```js
-	module.exports = Dishes;
-	```
+  ```js
+  module.exports = Dishes;
+  ```
