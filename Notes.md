@@ -117,6 +117,16 @@ npm install ejs
 	- Call the next middleware in the stack.
  ![Middleware](./Resources/Imgs/Middleware.PNG)
 
+ - **NOTE:** GET, POST, PUT, etc can also be middleware functions. e.g.
+ ```js
+ // middleware function will run one after another in sequence
+ dishRouter.route('/:dishId').post(
+	 middleware_function_1(),
+	 middleware_function_2(),
+	 middleware_function_3()
+	 )
+ ```
+
 ## 2. REST (Representational Statr Transfer)
 
 - two common approaches to support web services
@@ -285,12 +295,12 @@ const connection = mysql.createConnection({
 
 ## 4. Authentication
 ### 4.1 Types of Authentication:
-	1. Basic Authentication (Username and paasword)
-	2. Cookies Based Authentication
-	3. Sessions Based Authentication
-		3.1. Passport
-	4. Token Based Authentication
-		4.1. JWT (JSON Web Token)
+1. Basic Authentication (Username and paasword)
+2. Cookies Based Authentication
+3. Sessions Based Authentication
+	3.1. Passport
+4. Token Based Authentication
+	4.1. JWT (JSON Web Token)
 ### 4.2. Cookies Based Authentication
 - small in size
 - stored at client side
