@@ -16,6 +16,7 @@
 	3.2. NoSQL Databases
 	3.3. MongoDB
 	3.4. Mongoose ODM
+4. Authentication
 
 ## 1. Express
 
@@ -275,3 +276,23 @@ const connection = mysql.createConnection({
   ```js
   module.exports = Dishes;
   ```
+
+## 4. Authentication
+### 4.1 different type of auth:
+	1. Basic Authentication (Username and paasword)
+	2. Cookies Based Authentication
+		- small in size
+		- stored at client side
+		- 64bit encoded secret key
+		- npm module: cookies-parser
+	3. Sessions Based Authentication
+		- cookies with session-id and server side info
+		- stored at server side
+		- npm module: express-session
+	4. Token Based Authentication
+### 4.2 Passport
+ - Authentication middleware for node js
+ - support various local strategies for authentication:
+	- Local strategy
+ 	- OpenID based authentication
+	- Oauth (facebook, twitter) single sign on
