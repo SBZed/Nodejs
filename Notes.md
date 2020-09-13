@@ -3,20 +3,26 @@
 - Javascript used for server side.
 
 1. Express
-	1.1. Structure of Express file
-	1.2. Routing
-	1.3. Applying Css
-	1.4. EJS
-	1.5. Advantage of EJS
-	1.6. Middlewares
+	- 1.1. Structure of Express file
+	- 1.2. Routing
+	- 1.3. Applying Css
+	- 1.4. EJS
+	- 1.5. Advantage of EJS
+	- 1.6. Middlewares
 2. REST
-	2.1. Stateless Server
+	- 2.1. Stateless Server
 3. Database
-	3.1. SQL Databases
-	3.2. NoSQL Databases
-	3.3. MongoDB
-	3.4. Mongoose ODM
+	- 3.1. SQL Databases
+	- 3.2. NoSQL Databases
+	- 3.3. MongoDB
+	- 3.4. Mongoose ODM
 4. Authentication
+	- 4.1. Types of Authentication:
+	- 4.2. Cookies Based Authentication
+	- 4.3. Sessions Based Authentication
+		- 4.3.1 Passport
+	- 4.4. Token Based Authentication
+		- 4.4.1 JWT (JSON Web Token)
 
 ## 1. Express
 
@@ -278,21 +284,45 @@ const connection = mysql.createConnection({
   ```
 
 ## 4. Authentication
-### 4.1 different type of auth:
+### 4.1 Types of Authentication:
 	1. Basic Authentication (Username and paasword)
 	2. Cookies Based Authentication
-		- small in size
-		- stored at client side
-		- 64bit encoded secret key
-		- npm module: cookies-parser
 	3. Sessions Based Authentication
-		- cookies with session-id and server side info
-		- stored at server side
-		- npm module: express-session
+		3.1. Passport
 	4. Token Based Authentication
-### 4.2 Passport
- - Authentication middleware for node js
- - support various local strategies for authentication:
+		4.1. JWT (JSON Web Token)
+### 4.2. Cookies Based Authentication
+- small in size
+- stored at client side
+- 64bit encoded secret key
+- npm module: cookies-parser
+### 4.3. Sessions Based Authentication
+- cookies with session-id and server side info
+- stored at server side
+- npm module: express-session
+#### 4.3.1 Passport
+- Authentication middleware for node js
+- npm packages: passport, passport-local, passport-local-mongoose
+- support various local strategies for authentication:
 	- Local strategy
- 	- OpenID based authentication
+	- OpenID based authentication
 	- Oauth (facebook, twitter) single sign on
+### 4.4 Token Based Authentication
+- Nothing stored on the server
+- the server will issue a token to a validated user, and all subsequent requests coming from the client side, will bear the token in the request itself.
+- One application can easily share authentication with another application in secure manner
+- how it works?
+	1. User validate himself on server side by using username and password, third party auths, etc
+	2. server issue token to the validated user
+	3. all subsequent communication between user and server,done using this token.
+#### 4.4.1 JWT (JSON Web Token)
+- Standards based on IETF RFC 7519* (Internet Engineering Task Force)(Request For Comments. For Standard documents)
+- JWT can be sharble with other application
+- contains three part:
+	1. Header:
+		1.1. alg: algorithm for encoding JWT token (e.g. HS256)
+		1.2. typ: type of token
+	2. Payload: contain info to identify user, e.g. _id
+	3. Signature: secret key on server which for encoding JWT
+- npm package: jsonwebtoken and passport-jwt
+- method: sign() and verify()
