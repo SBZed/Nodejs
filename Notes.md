@@ -16,6 +16,7 @@
 	- 3.2. NoSQL Databases
 	- 3.3. MongoDB
 	- 3.4. Mongoose ODM
+	- 3.5. Mongoose Population
 4. Authentication
 	- 4.1. Types of Authentication:
 	- 4.2. Cookies Based Authentication
@@ -292,6 +293,29 @@ const connection = mysql.createConnection({
   ```js
   module.exports = Dishes;
   ```
+
+### 3.5. Mongoose Population
+- Mongoose do not explicitly support relations like SQL Databases
+- You can store references to other documents within documentb by using ObejctIds
+- Mongoose doesn't have joins
+- Mongoose population populated reference documents into current document
+- **Population is the process of automatically replacing specified paths within a document with documents from another collection.**
+- Schema will be
+```js
+var commentSchema = new Schema({
+	rating: { type: Number, min: 1, max: 5, required: true },
+	comment: { type: String, required: true },
+	author: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	}
+},
+	{ timestamps: true });
+```
+- Populating Documents
+```js
+```
+- **NOTE:** Population operation is not an easy task for the server to do. it'll take a much longer time for the server side to complete the request. **You should use it only in circumstances where you really need that information.**
 
 ## 4. Authentication
 ### 4.1 Types of Authentication:
