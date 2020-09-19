@@ -24,6 +24,7 @@
 		- 4.3.1 Passport
 	- 4.4. Token Based Authentication
 		- 4.4.1 JWT (JSON Web Token)
+5. HTTPS ans Secure Communication
 
 ## 1. Express
 
@@ -360,3 +361,51 @@ var commentSchema = new Schema({
 	3. Signature: secret key on server which for encoding JWT
 - npm package: jsonwebtoken and passport-jwt
 - method: sign() and verify()
+
+## 5. HTTPS ans Secure Communication
+### 5.1. Cryptography
+- Symmetric Key Cryptography: Sender and receiver have secret key to decode encoded message with algorithm.
+- ASymmetric/Public Key  Cryptography: sender have public key and reciever have privatr key, Public key that can be widely distbuted.
+- SSL: Secure Sockets Layer
+- TLS: Transport Layer Security
+### 5.2. SSL/TLS
+- Cryptographic protocols that enable secure communication over an insecure network like the internet
+- Use combination of public key cryptography and symmetric cryptography
+### 5.3 Steps generated Secure Server
+- Generate key and Certificate using OpenSSL for your server (localhost in demo case).(npm library - openssl)
+- to make **Not Secure** sign to **Secure** in address bar of web broswer, you may need to added above certificate in web browser/chrome in certificate section in settings.
+- Added private key and certificate in bin folder of Node app along with `www` file.
+- added following code in `www` file
+```js
+var https = require('https');
+var fs = require('fs');
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('secPort', port + 443);
+
+var options = {
+	key: fs.readFileSync(__dirname + '/server.key'),
+	cert: fs.readFileSync(__dirname + '/server.crt')
+};
+
+var secureServer = https.createServer(options, app);
+
+secureServer.listen(app.get('secPort'), () => {
+	console.log('Secure server listening on port ', app.get('secPort'));
+});
+
+secureServer.on('error', onError);
+secureServer.on('listening', onListening);
+```
+- Now configure server if insecure server port(http://localhost:3000/) comes, redirect it to secure port (https://localhost:3443/)
+- go to app.js
+```js
+app.all('*', (req, res, next) => {
+	if (req.secure) {
+		return next();
+	} else {
+		res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url);
+	}
+});
+```
+- 307 here represents that the target resource resides temporarily under different URL. And the user agent must not change the request method if it reforms in automatic redirection to that URL.
