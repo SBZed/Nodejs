@@ -25,6 +25,11 @@
 	- 4.4. Token Based Authentication
 		- 4.4.1 JWT (JSON Web Token)
 5. HTTPS ans Secure Communication
+	- 5.1. Cryptography
+	- 5.2. SSL/TLS
+	- 5.3. Steps generated Secure Server
+
+
 
 ## 1. Express
 
