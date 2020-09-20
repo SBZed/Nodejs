@@ -24,11 +24,11 @@
 		- 4.3.1 Passport
 	- 4.4. Token Based Authentication
 		- 4.4.1 JWT (JSON Web Token)
-5. HTTPS ans Secure Communication
-	- 5.1. Cryptography
-	- 5.2. SSL/TLS
-	- 5.3. Steps generated Secure Server
-
+5. Backend as a Service (BaaS)
+	- 5.1. HTTPS ans Secure Communication
+		- 5.1.1 Cryptography
+		- 5.1.2 SSL/TLS
+		- 5.1.3 Steps generated Secure Server
 
 
 ## 1. Express
@@ -367,16 +367,17 @@ var commentSchema = new Schema({
 - npm package: jsonwebtoken and passport-jwt
 - method: sign() and verify()
 
-## 5. HTTPS ans Secure Communication
-### 5.1. Cryptography
+## 5. Backend as a Service (BaaS)
+### 5.1. HTTPS ans Secure Communication
+#### 5.1.1 Cryptography
 - Symmetric Key Cryptography: Sender and receiver have secret key to decode encoded message with algorithm.
 - ASymmetric/Public Key  Cryptography: sender have public key and reciever have privatr key, Public key that can be widely distbuted.
 - SSL: Secure Sockets Layer
 - TLS: Transport Layer Security
-### 5.2. SSL/TLS
+#### 5.1.2 SSL/TLS
 - Cryptographic protocols that enable secure communication over an insecure network like the internet
 - Use combination of public key cryptography and symmetric cryptography
-### 5.3 Steps generated Secure Server
+#### 5.1.3 Steps generated Secure Server
 - Generate key and Certificate using OpenSSL for your server (localhost in demo case).(npm library - openssl)
 - to make **Not Secure** sign to **Secure** in address bar of web broswer, you may need to added above certificate in web browser/chrome in certificate section in settings.
 - Added private key and certificate in bin folder of Node app along with `www` file.
@@ -414,3 +415,15 @@ app.all('*', (req, res, next) => {
 });
 ```
 - 307 here represents that the target resource resides temporarily under different URL. And the user agent must not change the request method if it reforms in automatic redirection to that URL.
+
+### 5.2. CORS (Cross Origin Resource Sharing)
+- most webpages now pull in data from many different sites in order to construct a webpage.
+- Now, in order to impose a strict policy of access to resources from different sites, the same origin policy has been imposed by many browsers.
+- Same origin defined by three value:
+	- Protocol (e.g. http, https)
+	- Hostname (e.g. www.google.com, www.amazon.com)
+	- Port number (e.g. www.google.com:123, www.amazon.com:5555)
+- Same origin request if all request have thses three values same
+- Cross-Origin Request: Accessing a resource  from a different domain, protocol or port
+- Browsers restrict Cross-origin http requests initiated from within scripts e.g XMLHttpRequest(XHR), Fetch
+- **CORS is Solution!** - A mechanism to give web server cross-origin access controls
