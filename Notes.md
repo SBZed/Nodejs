@@ -3,33 +3,32 @@
 - Javascript used for server side.
 
 1. Express
-	- 1.1. Structure of Express file
-	- 1.2. Routing
-	- 1.3. Applying Css
-	- 1.4. EJS
-	- 1.5. Advantage of EJS
-	- 1.6. Middlewares
+   - 1.1. Structure of Express file
+   - 1.2. Routing
+   - 1.3. Applying Css
+   - 1.4. EJS
+   - 1.5. Advantage of EJS
+   - 1.6. Middlewares
 2. REST
-	- 2.1. Stateless Server
+   - 2.1. Stateless Server
 3. Database
-	- 3.1. SQL Databases
-	- 3.2. NoSQL Databases
-	- 3.3. MongoDB
-	- 3.4. Mongoose ODM
-	- 3.5. Mongoose Population
+   - 3.1. SQL Databases
+   - 3.2. NoSQL Databases
+   - 3.3. MongoDB
+   - 3.4. Mongoose ODM
+   - 3.5. Mongoose Population
 4. Authentication
-	- 4.1. Types of Authentication:
-	- 4.2. Cookies Based Authentication
-	- 4.3. Sessions Based Authentication
-		- 4.3.1 Passport
-	- 4.4. Token Based Authentication
-		- 4.4.1 JWT (JSON Web Token)
+   - 4.1. Types of Authentication:
+   - 4.2. Cookies Based Authentication
+   - 4.3. Sessions Based Authentication
+     - 4.3.1 Passport
+   - 4.4. Token Based Authentication
+     - 4.4.1 JWT (JSON Web Token)
 5. Backend as a Service (BaaS)
-	- 5.1. HTTPS ans Secure Communication
-		- 5.1.1 Cryptography
-		- 5.1.2 SSL/TLS
-		- 5.1.3 Steps generated Secure Server
-
+   - 5.1. HTTPS ans Secure Communication
+     - 5.1.1 Cryptography
+     - 5.1.2 SSL/TLS
+     - 5.1.3 Steps generated Secure Server
 
 ## 1. Express
 
@@ -86,9 +85,11 @@ app.use(express.static('public')))
 
 - Embedded JavaScript
 - EJS is a Node.js package that lets you embed JavaScript code in your HTML file.
+
 ```sh
 npm install ejs
 ```
+
 - To embed JavaScript code, we can use <% %> or <%= %>.
 - <% %> is used in cases like defining a variable as it won't be displayed.
 - <%= %>, on the other hand, is used for cases like printing a variable as it will be displayed.
@@ -102,37 +103,42 @@ npm install ejs
   ![using EJS](https://d2aj9sy12tbpym.cloudfront.net/progate/shared/images/slide/nodejs/study/1/1580362898355.png)
 
 ### 1.6. Middlewares
- - **Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.**
+
+- **Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.**
 
 ```js
-	// Middleware
-	app.use(logger('dev'));
-	app.use(express.json());
-	app.use(express.urlencoded({ extended: false }));
-	app.use(cookieParser());
-	app.use(auth);
-	app.use(express.static(path.join(__dirname, 'public')));
+// Middleware
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(auth);
+app.use(express.static(path.join(__dirname, 'public')));
 ```
 
- - Middleware literally means anything you put in the middle of one layer of the software and another
- - Express middleware are functions that execute during the lifecycle of a request to the Express server.
- - Each middleware has access to the HTTP request and response for each route (or path) it’s attached to.
- Middleware functions can perform the following tasks:
-	- Execute any code.
-	- Make changes to the request and the response objects.
-	- End the request-response cycle.
-	- Call the next middleware in the stack.
- ![Middleware](./Resources/Imgs/Middleware.PNG)
+- Middleware literally means anything you put in the middle of one layer of the software and another
+- Express middleware are functions that execute during the lifecycle of a request to the Express server.
+- Each middleware has access to the HTTP request and response for each route (or path) it’s attached to.
+  Middleware functions can perform the following tasks:
 
- - **NOTE:** GET, POST, PUT, etc can also be middleware functions. e.g.
- ```js
- // middleware function will run one after another in sequence
- dishRouter.route('/:dishId').post(
-	 middleware_function_1(),
-	 middleware_function_2(),
-	 middleware_function_3()
-	 )
- ```
+  - Execute any code.
+  - Make changes to the request and the response objects.
+  - End the request-response cycle.
+  - Call the next middleware in the stack.
+    ![Middleware](./Resources/Imgs/Middleware.PNG)
+
+- **NOTE:** GET, POST, PUT, etc can also be middleware functions. e.g.
+
+```js
+// middleware function will run one after another in sequence
+dishRouter
+	.route('/:dishId')
+	.post(
+		middleware_function_1(),
+		middleware_function_2(),
+		middleware_function_3()
+	);
+```
 
 ## 2. REST (Representational Statr Transfer)
 
@@ -209,7 +215,7 @@ const connection = mysql.createConnection({
   - information about type of field value
   - Additional primitives types not supported by raw json like UTC date time, raw binary, ObjectId
 - MongoDB ObjectId:
-  - Every document must have "_id" (unique primary field)
+  - Every document must have "\_id" (unique primary field)
   - Default ObjectId created by Mongo
   - ObjectId is a 12 byte field
   ***
@@ -301,87 +307,115 @@ const connection = mysql.createConnection({
   ```
 
 ### 3.5. Mongoose Population
+
 - Mongoose do not explicitly support relations like SQL Databases
 - You can store references to other documents within documentb by using ObejctIds
 - Mongoose doesn't have joins
 - Mongoose population populated reference documents into current document
 - **Population is the process of automatically replacing specified paths within a document with documents from another collection.**
 - Schema will be
+
 ```js
-var commentSchema = new Schema({
-	rating: { type: Number, min: 1, max: 5, required: true },
-	comment: { type: String, required: true },
-	author: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
-	}
-},
-	{ timestamps: true });
+var commentSchema = new Schema(
+	{
+		rating: { type: Number, min: 1, max: 5, required: true },
+		comment: { type: String, required: true },
+		author: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User',
+		},
+	},
+	{ timestamps: true }
+);
 ```
+
 - Populating Documents
+
 ```js
+
 ```
+
 - **NOTE:** Population operation is not an easy task for the server to do. it'll take a much longer time for the server side to complete the request. **You should use it only in circumstances where you really need that information.**
 
 ## 4. Authentication
+
 ### 4.1 Types of Authentication:
+
 1. Basic Authentication (Username and paasword)
 2. Cookies Based Authentication
 3. Sessions Based Authentication
-	3.1. Passport
+   3.1. Passport
 4. Token Based Authentication
-	4.1. JWT (JSON Web Token)
+   4.1. JWT (JSON Web Token)
+
 ### 4.2. Cookies Based Authentication
+
 - small in size
 - stored at client side
 - 64bit encoded secret key
 - npm module: cookies-parser
+
 ### 4.3. Sessions Based Authentication
+
 - cookies with session-id and server side info
 - stored at server side
 - npm module: express-session
+
 #### 4.3.1 Passport
+
 - Authentication middleware for node js
 - npm packages: passport, passport-local, passport-local-mongoose
 - support various local strategies for authentication:
-	- Local strategy
-	- OpenID based authentication
-	- Oauth (facebook, twitter) single sign on
+  - Local strategy
+  - OpenID based authentication
+  - Oauth (facebook, twitter) single sign on
+
 ### 4.4 Token Based Authentication
+
 - Nothing stored on the server
 - the server will issue a token to a validated user, and all subsequent requests coming from the client side, will bear the token in the request itself.
 - One application can easily share authentication with another application in secure manner
 - how it works?
-	1. User validate himself on server side by using username and password, third party auths, etc
-	2. server issue token to the validated user
-	3. all subsequent communication between user and server,done using this token.
+  1.  User validate himself on server side by using username and password, third party auths, etc
+  2.  server issue token to the validated user
+  3.  all subsequent communication between user and server,done using this token.
+
 #### 4.4.1 JWT (JSON Web Token)
-- Standards based on IETF RFC 7519* (Internet Engineering Task Force)(Request For Comments. For Standard documents)
+
+- Standards based on IETF RFC 7519\* (Internet Engineering Task Force)(Request For Comments. For Standard documents)
 - JWT can be sharble with other application
 - contains three part:
-	1. Header:
-		1.1. alg: algorithm for encoding JWT token (e.g. HS256)
-		1.2. typ: type of token
-	2. Payload: contain info to identify user, e.g. _id
-	3. Signature: secret key on server which for encoding JWT
+  1.  Header:
+      1.1. alg: algorithm for encoding JWT token (e.g. HS256)
+      1.2. typ: type of token
+  2.  Payload: contain info to identify user, e.g. \_id
+  3.  Signature: secret key on server which for encoding JWT
 - npm package: jsonwebtoken and passport-jwt
 - method: sign() and verify()
 
 ## 5. Backend as a Service (BaaS)
+
 ### 5.1. HTTPS ans Secure Communication
+
 #### 5.1.1 Cryptography
+
 - Symmetric Key Cryptography: Sender and receiver have secret key to decode encoded message with algorithm.
-- ASymmetric/Public Key  Cryptography: sender have public key and reciever have privatr key, Public key that can be widely distbuted.
+- ASymmetric/Public Key Cryptography: sender have public key and reciever have privatr key, Public key that can be widely distbuted.
 - SSL: Secure Sockets Layer
 - TLS: Transport Layer Security
+
 #### 5.1.2 SSL/TLS
+
 - Cryptographic protocols that enable secure communication over an insecure network like the internet
 - Use combination of public key cryptography and symmetric cryptography
+
 #### 5.1.3 Steps generated Secure Server
+
 - Generate key and Certificate using OpenSSL for your server (localhost in demo case).(npm library - openssl)
 - to make **Not Secure** sign to **Secure** in address bar of web broswer, you may need to added above certificate in web browser/chrome in certificate section in settings.
 - Added private key and certificate in bin folder of Node app along with `www` file.
 - added following code in `www` file
+
 ```js
 var https = require('https');
 var fs = require('fs');
@@ -391,7 +425,7 @@ app.set('secPort', port + 443);
 
 var options = {
 	key: fs.readFileSync(__dirname + '/server.key'),
-	cert: fs.readFileSync(__dirname + '/server.crt')
+	cert: fs.readFileSync(__dirname + '/server.crt'),
 };
 
 var secureServer = https.createServer(options, app);
@@ -403,27 +437,58 @@ secureServer.listen(app.get('secPort'), () => {
 secureServer.on('error', onError);
 secureServer.on('listening', onListening);
 ```
+
 - Now configure server if insecure server port(http://localhost:3000/) comes, redirect it to secure port (https://localhost:3443/)
 - go to app.js
+
 ```js
 app.all('*', (req, res, next) => {
 	if (req.secure) {
 		return next();
 	} else {
-		res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url);
+		res.redirect(
+			307,
+			'https://' + req.hostname + ':' + app.get('secPort') + req.url
+		);
 	}
 });
 ```
+
 - 307 here represents that the target resource resides temporarily under different URL. And the user agent must not change the request method if it reforms in automatic redirection to that URL.
 
 ### 5.2. CORS (Cross Origin Resource Sharing)
+
 - most webpages now pull in data from many different sites in order to construct a webpage.
 - Now, in order to impose a strict policy of access to resources from different sites, the same origin policy has been imposed by many browsers.
 - Same origin defined by three value:
-	- Protocol (e.g. http, https)
-	- Hostname (e.g. www.google.com, www.amazon.com)
-	- Port number (e.g. www.google.com:123, www.amazon.com:5555)
+  - Protocol (e.g. http, https)
+  - Hostname (e.g. www.google.com, www.amazon.com)
+  - Port number (e.g. www.google.com:123, www.amazon.com:5555)
 - Same origin request if all request have thses three values same
-- Cross-Origin Request: Accessing a resource  from a different domain, protocol or port
+- Cross-Origin Request: Accessing a resource from a different domain, protocol or port
 - Browsers restrict Cross-origin http requests initiated from within scripts e.g XMLHttpRequest(XHR), Fetch
 - **CORS is Solution!** - A mechanism to give web server cross-origin access controls
+- Type of Request:
+  1.  Simple Cross Origin Requests
+      - GET or POST request with body containing application/x-www-form-urlencoded, multipart/form-data or text/plain
+  - No custom header
+  - Can use Access-Control-Allow-Origin for not restricting access to certain origin.
+  2.  Preflighted Requests
+      - In the preflighted request, you expect that before the client sends the actual request, the client will send a **preflight request**.
+  - meaning that it contacts the server to obtain information from the server before the actual request is issued.
+  - This is specifically the case where you issue PUT and DELETE requests
+  - Any method that causes side effects on the server's data, like the PUT and the DELETE request, are specially mandated to follow the preflight approach.
+    - **preflight approach**:
+    1.  the client will send an HTTP OPTIONS request to the server side.
+    2.  in reply to that OPTIONS request message, the server will respond with the corresponding Access-Control-Allow-Headers, Access-Control-Allow-Origin, and Access-Control-Allow-Credentials header information in the reply to an OPTIONS message.
+    3.  Thereafter, the client will decide whether it can issue the cross-origin request or not based upon the response to the OPTIONS preflight request that the client sent.
+  3.  Credentialed Requests
+  - you expect the client to include credentials in the header of the request message.
+  -
+
+the passion is being obsessed about every little thing that can produce success for you
+Knowing your own game inside out
+
+Attitude
+Resilience: play in under all playing conditions
+longevity
