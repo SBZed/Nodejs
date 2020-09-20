@@ -13,6 +13,7 @@ dishRouter.use(bodyParser.json());
 // All Dishes Operation
 dishRouter
 	.route('/')
+	// Preflighted Request
 	.options(cors.corsWithOptions, (req, res) => {
 		res.sendStatus(200);
 	})
@@ -35,10 +36,7 @@ dishRouter
 			.catch((err) => next(err));
 		// res.end('Will send all the dishes to you!');
 	})
-	.post(
-		cors.corsWithOptions,
-		authenticate.verifyUser,
-		authenticate.verifyAdmin,
+	.post(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin,
 		(req, res, next) => {
 			Dishes.create(req.body)
 				.then(
@@ -54,19 +52,13 @@ dishRouter
 			// res.end('Will add the dish: ' + req.body.name + ' with details: ' + req.body.description );
 		}
 	)
-	.put(
-		cors.corsWithOptions,
-		authenticate.verifyUser,
-		authenticate.verifyAdmin,
+	.put(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin,
 		(req, res, next) => {
 			res.statusCode = 403;
 			res.end('PUT operation not supported on /dishes');
 		}
 	)
-	.delete(
-		cors.corsWithOptions,
-		authenticate.verifyUser,
-		authenticate.verifyAdmin,
+	.delete(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin,
 		(req, res, next) => {
 			Dishes.remove({})
 				.then(
@@ -85,6 +77,7 @@ dishRouter
 // Single Dish Operation
 dishRouter
 	.route('/:dishId')
+	// Preflighted Request
 	.options(cors.corsWithOptions, (req, res) => {
 		res.sendStatus(200);
 	})
@@ -107,19 +100,13 @@ dishRouter
 			.catch((err) => next(err));
 		// res.end('Will send details of the dish: ' + req.params.dishId + ' to you!');
 	})
-	.post(
-		cors.corsWithOptions,
-		authenticate.verifyUser,
-		authenticate.verifyAdmin,
+	.post(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin,
 		(req, res, next) => {
 			res.statusCode = 403;
 			res.end('POST operation not supported on /dishes/' + req.params.dishId);
 		}
 	)
-	.put(
-		cors.corsWithOptions,
-		authenticate.verifyUser,
-		authenticate.verifyAdmin,
+	.put(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin,
 		(req, res, next) => {
 			// res.write('Updating the dish: ' + req.params.dishId + '\n');
 			// res.end( 'Will update the dish: ' + req.body.name + ' with details: ' + req.body.description);
@@ -139,10 +126,7 @@ dishRouter
 				.catch((err) => next(err));
 		}
 	)
-	.delete(
-		cors.corsWithOptions,
-		authenticate.verifyUser,
-		authenticate.verifyAdmin,
+	.delete(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin,
 		(req, res, next) => {
 			// res.end('Deleting dish: ' + req.params.dishId);
 			Dishes.findByIdAndRemove(req.params.dishId)
@@ -161,6 +145,7 @@ dishRouter
 // All Comments Operation
 dishRouter
 	.route('/:dishId/comments')
+	// Preflighted Request
 	.options(cors.corsWithOptions, (req, res) => {
 		res.sendStatus(200);
 	})
@@ -223,21 +208,18 @@ dishRouter
 		res.statusCode = 403;
 		res.end(
 			'PUT operation not supported on /dishes/' +
-				req.params.dishId +
-				'/comments'
+			req.params.dishId +
+			'/comments'
 		);
 	})
-	.delete(
-		cors.corsWithOptions,
-		authenticate.verifyUser,
-		authenticate.verifyAdmin,
+	.delete(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin,
 		(req, res, next) => {
 			Dishes.findById(req.params.dishId)
 				.then(
 					(dish) => {
 						if (dish != null) {
 							for (var i = dish.comments.length - 1; i >= 0; i--) {
-								dish.comments.id(dish.comments[i]._id).remove();
+								dish.comments.id(dish.comments[ i ]._id).remove();
 							}
 							dish.save().then(
 								(dish) => {
@@ -263,6 +245,7 @@ dishRouter
 // Single Comment Operation
 dishRouter
 	.route('/:dishId/comments/:commentId')
+	// Preflighted Request
 	.options(cors.corsWithOptions, (req, res) => {
 		res.sendStatus(200);
 	})
@@ -299,9 +282,9 @@ dishRouter
 		res.statusCode = 403;
 		res.end(
 			'POST operation not supported on /dishes/' +
-				req.params.dishId +
-				'/comments/' +
-				req.params.commentId
+			req.params.dishId +
+			'/comments/' +
+			req.params.commentId
 		);
 	})
 	.put(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
