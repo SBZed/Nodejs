@@ -1,0 +1,984 @@
+{
+	"info": {
+		"_postman_id": "e287be91-a503-4f51-a733-383ffd0a7ea7",
+		"name": "Node - conFusionServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dishes",
+			"item": [
+				{
+					"name": "Comments",
+					"item": [
+						{
+							"name": "comments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{basepath}}/dishes/{{dish_id}}/comments",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"dishes",
+										"{{dish_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "comments",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVlOTE3YjhiMDM3MzU4MTI5MzIiLCJpYXQiOjE2MDAyODE5NjksImV4cCI6MTYwMDI4NTU2OX0.bLCS4itmdyLCf3g-V65dHaY-19tBUXB0hm4gKg5JnTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": 5,\r\n    \"comment\": \"This is thorid Comment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{basepath}}/dishes/{{dish_id}}/comments",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"dishes",
+										"{{dish_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "comments",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": 3,\r\n    \"comment\": \"This is fourth Comment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{basepath}}/dishes/{{dish_id}}/comments",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"dishes",
+										"{{dish_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "comments",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{basepath}}/dishes/{{dish_id}}/comments",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"dishes",
+										"{{dish_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "comments/{{comment_id}}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{basepath}}/dishes/{{dish_id}}/comments/{{comment_id}}",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"dishes",
+										"{{dish_id}}",
+										"comments",
+										"{{comment_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "comments/{{comment_id}}",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVlOTE3YjhiMDM3MzU4MTI5MzIiLCJpYXQiOjE2MDAyODE5NjksImV4cCI6MTYwMDI4NTU2OX0.bLCS4itmdyLCf3g-V65dHaY-19tBUXB0hm4gKg5JnTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": 5,\r\n    \"comment\": \"This is thorid Comment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{basepath}}/dishes/{{dish_id}}/comments/{{comment_id}}",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"dishes",
+										"{{dish_id}}",
+										"comments",
+										"{{comment_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "comments/{{comment_id}}",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVlOTE3YjhiMDM3MzU4MTI5MzIiLCJpYXQiOjE2MDAyODM2NTUsImV4cCI6MTYwMDI4NzI1NX0.weUtKbElJYQS47NONfkm8d3Ow4GUIc__-zJ-FlaRMws",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": 3.45645\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{basepath}}/dishes/{{dish_id}}/comments/{{comment_id}}",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"dishes",
+										"{{dish_id}}",
+										"comments",
+										"{{comment_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "comments/{{comment_id}}",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{basepath}}/dishes/{{dish_id}}/comments/{{comment_id}}",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"dishes",
+										"{{dish_id}}",
+										"comments",
+										"{{comment_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "dishes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/dishes",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dishes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Pizza\",\r\n      \"image\": \"images/Pizza.png\",\r\n      \"category\": \"Pizza\",\r\n      \"label\": \"Hot\",\r\n      \"price\": \"1.99\",\r\n      \"featured\": \"false\",\r\n      \"description\": \"Joey's Pizza\",\r\n      \"comments\": [ ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/dishes",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dishes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Updated Zucchipakoda\",\r\n      \"label\": \"Updated Hot\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/dishes",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dishes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/dishes",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dishes/{dish_id}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/dishes/{{dish_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"dishes",
+								"{{dish_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dishes/{dish_id}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Zucchipakoda\",\r\n      \"image\": \"images/zucchipakoda.png\",\r\n      \"category\": \"appetizer\",\r\n      \"label\": \"\",\r\n      \"price\": \"1.99\",\r\n      \"featured\": \"false\",\r\n      \"description\": \"Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce\",\r\n      \"comments\": [ ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/dishes/{{dish_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"dishes",
+								"{{dish_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dishes/{dish_id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Updated Zucchipakoda\",\r\n      \"label\": \"Updated Hot\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/dishes/{{dish_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"dishes",
+								"{{dish_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dishes/{dish_id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/dishes/{{dish_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"dishes",
+								"{{dish_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Promotions",
+			"item": [
+				{
+					"name": "promotions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/promotions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Pizza\",\r\n      \"image\": \"images/Pizza.png\",\r\n      \"category\": \"Pizza\",\r\n      \"label\": \"Hot\",\r\n      \"price\": \"1.99\",\r\n      \"featured\": \"false\",\r\n      \"description\": \"Joey's Pizza\",\r\n      \"comments\": [ ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/promotions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Updated Zucchipakoda\",\r\n      \"label\": \"Updated Hot\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/promotions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/promotions",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions/{promo_id}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/promotions/{{promo_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"promotions",
+								"{{promo_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions/{promo_id}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Zucchipakoda\",\r\n      \"image\": \"images/zucchipakoda.png\",\r\n      \"category\": \"appetizer\",\r\n      \"label\": \"\",\r\n      \"price\": \"1.99\",\r\n      \"featured\": \"false\",\r\n      \"description\": \"Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce\",\r\n      \"comments\": [ ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/promotions/{{promo_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"promotions",
+								"{{promo_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions/{promo_id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Updated Zucchipakoda\",\r\n      \"label\": \"Updated Hot\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/promotions/{{promo_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"promotions",
+								"{{promo_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions/{promo_id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/promotions/{{promo_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"promotions",
+								"{{promo_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"Saurabh@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/users",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ImageUpload",
+			"item": [
+				{
+					"name": "imageUpload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageFile",
+									"type": "file",
+									"src": "/C:/Users/SaurabhZ/Pictures/GIfs/Z.gif"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/imageUpload",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"imageUpload"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "imageUpload",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "imageFile",
+											"type": "file",
+											"src": "/C:/Users/SaurabhZ/Pictures/GIfs/Zedd.gif"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{basepath}}/imageUpload",
+									"host": [
+										"{{basepath}}"
+									],
+									"path": [
+										"imageUpload"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c1-y5YgOHoLxvFpKFJH/DR8X7uTnUI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Sep 2020 16:46:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"fieldname\": \"imageFile\",\n    \"originalname\": \"Zedd.gif\",\n    \"encoding\": \"7bit\",\n    \"mimetype\": \"image/gif\",\n    \"destination\": \"public/images\",\n    \"filename\": \"Zedd.gif\",\n    \"path\": \"public\\\\images\\\\Zedd.gif\",\n    \"size\": 1832746\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"Saurabh@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basepath}}/users/login",
+					"host": [
+						"{{basepath}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"sbzed\",\r\n    \"firstname\": \"Saurabh\",\r\n    \"lastname\": \"Zinjad\",\r\n    \"password\": \"Saurabh@123\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{basepath}}/users/signup",
+					"host": [
+						"{{basepath}}"
+					],
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1cfdb091-61ff-4910-8635-2eb51aaaa9d9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c9fe91eb-095b-4e7c-b8ad-36dafb02d15b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "fbd705a5-d409-47dc-ab11-719eec2c8b0b",
+			"key": "jwt_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVjYjE3YjhiMDM3MzU4MTI5MzAiLCJpYXQiOjE2MDA1MzM4MTQsImV4cCI6MTYwMDUzNzQxNH0.nU8LKwsCYe71og9CFvFUdBUd6kBgN1mgqxaws1qjGgI"
+		},
+		{
+			"id": "c727ca55-b3fa-4e48-936d-6cf19f5c4cef",
+			"key": "basepath",
+			"value": "https://localhost:3443"
+		},
+		{
+			"id": "de48e84a-c3b3-4c02-9794-2c7684740f76",
+			"key": "dish_id",
+			"value": "5f625c038c4d8957850d366a"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
