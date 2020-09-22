@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "e287be91-a503-4f51-a733-383ffd0a7ea7",
-		"name": "Node - conFusionServer",
+		"name": "NodeJs_conFusionServer",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -33,16 +33,6 @@
 						{
 							"name": "comments",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVlOTE3YjhiMDM3MzU4MTI5MzIiLCJpYXQiOjE2MDAyODE5NjksImV4cCI6MTYwMDI4NTU2OX0.bLCS4itmdyLCf3g-V65dHaY-19tBUXB0hm4gKg5JnTA",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -71,16 +61,6 @@
 						{
 							"name": "comments",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{jwt_token}}",
-											"type": "string"
-										}
-									]
-								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -109,16 +89,6 @@
 						{
 							"name": "comments",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{jwt_token}}",
-											"type": "string"
-										}
-									]
-								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -158,16 +128,6 @@
 						{
 							"name": "comments/{{comment_id}}",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVlOTE3YjhiMDM3MzU4MTI5MzIiLCJpYXQiOjE2MDAyODE5NjksImV4cCI6MTYwMDI4NTU2OX0.bLCS4itmdyLCf3g-V65dHaY-19tBUXB0hm4gKg5JnTA",
-											"type": "string"
-										}
-									]
-								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -197,16 +157,6 @@
 						{
 							"name": "comments/{{comment_id}}",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVlOTE3YjhiMDM3MzU4MTI5MzIiLCJpYXQiOjE2MDAyODM2NTUsImV4cCI6MTYwMDI4NzI1NX0.weUtKbElJYQS47NONfkm8d3Ow4GUIc__-zJ-FlaRMws",
-											"type": "string"
-										}
-									]
-								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -236,16 +186,6 @@
 						{
 							"name": "comments/{{comment_id}}",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{jwt_token}}",
-											"type": "string"
-										}
-									]
-								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -271,14 +211,7 @@
 					"name": "dishes",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt_token}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -297,21 +230,11 @@
 				{
 					"name": "dishes",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt_token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n      \"name\": \"Pizza\",\r\n      \"image\": \"images/Pizza.png\",\r\n      \"category\": \"Pizza\",\r\n      \"label\": \"Hot\",\r\n      \"price\": \"1.99\",\r\n      \"featured\": \"false\",\r\n      \"description\": \"Joey's Pizza\",\r\n      \"comments\": [ ]\r\n    }",
+							"raw": "{\r\n      \"name\": \"ElaiCheese Cake\",\r\n      \"image\": \"images/elaicheesecake.png\",\r\n      \"category\": \"dessert\",\r\n      \"label\": \"\",\r\n      \"price\": \"2.99\",\r\n      \"featured\": \"false\",\r\n      \"description\": \"A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -333,16 +256,6 @@
 				{
 					"name": "dishes",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt_token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -369,16 +282,6 @@
 				{
 					"name": "dishes",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt_token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -472,7 +375,13 @@
 					"name": "dishes/{dish_id}",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Origin",
+								"value": "https://localhost:3443",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{basepath}}/dishes/{{dish_id}}",
 							"host": [
@@ -715,6 +624,201 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "favorites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/favorites",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favorites",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\"_id\": \"5f68dbb5ba2ebd28d5b77dd7\"},\r\n    {\"_id\": \"5f68db9dba2ebd28d5b77dd6\"}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/favorites",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favorites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Updated Zucchipakoda\",\r\n      \"label\": \"Updated Hot\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/favorites",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favorites",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/favorites",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favorites/{dish_id}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/favorites/{{dish_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"favorites",
+								"{{dish_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favorites/{dish_id}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Zucchipakoda\",\r\n      \"image\": \"images/zucchipakoda.png\",\r\n      \"category\": \"appetizer\",\r\n      \"label\": \"\",\r\n      \"price\": \"1.99\",\r\n      \"featured\": \"false\",\r\n      \"description\": \"Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce\",\r\n      \"comments\": [ ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/favorites/{{dishId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"favorites",
+								"{{dishId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favorites/{dish_id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"name\": \"Updated Zucchipakoda\",\r\n      \"label\": \"Updated Hot\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/favorites/{{dish_id}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"favorites",
+								"{{dish_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "favorites/{dish_id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/favorites/{{dishId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"favorites",
+								"{{dishId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Users",
 			"item": [
 				{
@@ -880,7 +984,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"Saurabh@123\"\r\n}",
+					"raw": "{\r\n    \"username\": \"sbzed\",\r\n    \"password\": \"Saurabh@123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -929,6 +1033,254 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Preflight Request",
+			"request": {
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://localhost:3443",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:3443/dishes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3443",
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facebook-token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://localhost:3443",
+						"type": "text"
+					},
+					{
+						"key": "access_token",
+						"value": "EAAm1EWtWtnUBABZBjFKuNgvqKp2DkNuHE3F0ri6uE4HG8DW5Y1iw5ahGtpZAeEP87QOhKWfN6fcvShrfyyPv49rHcqk3x8fWKVQMjc9HgB0G7weEYoDs3lA9qfFxp13d90AYZAjYwZAzbBFvh9JmZBkNKmnUHGOMzd68ZBIiX93MEdbDFvVA3E",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{basepath}}/users/facebook/token",
+					"host": [
+						"{{basepath}}"
+					],
+					"path": [
+						"users",
+						"facebook",
+						"token"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "EAAm1EWtWtnUBABZBjFKuNgvqKp2DkNuHE3F0ri6uE4HG8DW5Y1iw5ahGtpZAeEP87QOhKWfN6fcvShrfyyPv49rHcqk3x8fWKVQMjc9HgB0G7weEYoDs3lA9qfFxp13d90AYZAjYwZAzbBFvh9JmZBkNKmnUHGOMzd68ZBIiX93MEdbDFvVA3E",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "facebook-token-from-query-parameter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Origin",
+								"value": "https://localhost:3443",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "EAAm1EWtWtnUBABZBjFKuNgvqKp2DkNuHE3F0ri6uE4HG8DW5Y1iw5ahGtpZAeEP87QOhKWfN6fcvShrfyyPv49rHcqk3x8fWKVQMjc9HgB0G7weEYoDs3lA9qfFxp13d90AYZAjYwZAzbBFvh9JmZBkNKmnUHGOMzd68ZBIiX93MEdbDFvVA3E",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/users/facebook/token?access_token=EAAm1EWtWtnUBABZBjFKuNgvqKp2DkNuHE3F0ri6uE4HG8DW5Y1iw5ahGtpZAeEP87QOhKWfN6fcvShrfyyPv49rHcqk3x8fWKVQMjc9HgB0G7weEYoDs3lA9qfFxp13d90AYZAjYwZAzbBFvh9JmZBkNKmnUHGOMzd68ZBIiX93MEdbDFvVA3E",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"users",
+								"facebook",
+								"token"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "EAAm1EWtWtnUBABZBjFKuNgvqKp2DkNuHE3F0ri6uE4HG8DW5Y1iw5ahGtpZAeEP87QOhKWfN6fcvShrfyyPv49rHcqk3x8fWKVQMjc9HgB0G7weEYoDs3lA9qfFxp13d90AYZAjYwZAzbBFvh9JmZBkNKmnUHGOMzd68ZBIiX93MEdbDFvVA3E"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "242"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f2-2z+TJep/fP3Q3OC1RejfxfVEXPE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Sep 2020 18:39:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjY3YTEyMDg3YThjNjZmZTRhODBlZDYiLCJpYXQiOjE2MDA2MjcxNDksImV4cCI6MTYwMDYzMDc0OX0._V3ugrhyHY_GqJx8CEspWLLf3lFqyeNRPnSSpWCkQ_0\",\n    \"status\": \"You are successfully logged in!\"\n}"
+				},
+				{
+					"name": "facebook-token-from-with-Authorization",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Origin",
+								"value": "https://localhost:3443",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/users/facebook/token",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"users",
+								"facebook",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "242"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f2-FMjZjrZnH5OmyyteeGLMni1hBto\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Sep 2020 18:36:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjY3YTEyMDg3YThjNjZmZTRhODBlZDYiLCJpYXQiOjE2MDA2MjY5NzYsImV4cCI6MTYwMDYzMDU3Nn0.SzDUHuW4uYum2jiMG8oItkl5MZfsqiAmGTE1Ykg9qW0\",\n    \"status\": \"You are successfully logged in!\"\n}"
+				},
+				{
+					"name": "facebook-token-from-with-access-token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Origin",
+								"value": "https://localhost:3443",
+								"type": "text"
+							},
+							{
+								"key": "access_token",
+								"value": "EAAm1EWtWtnUBABZBjFKuNgvqKp2DkNuHE3F0ri6uE4HG8DW5Y1iw5ahGtpZAeEP87QOhKWfN6fcvShrfyyPv49rHcqk3x8fWKVQMjc9HgB0G7weEYoDs3lA9qfFxp13d90AYZAjYwZAzbBFvh9JmZBkNKmnUHGOMzd68ZBIiX93MEdbDFvVA3E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/users/facebook/token",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"users",
+								"facebook",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "242"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f2-UIby36b9l6My4DCWd8THEaZEqhY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Sep 2020 18:37:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjY3YTEyMDg3YThjNjZmZTRhODBlZDYiLCJpYXQiOjE2MDA2MjcwNTgsImV4cCI6MTYwMDYzMDY1OH0.ITqjDGihT6FRjGuHauYGhdaEBdZnvFn0Ci-wGl4yZ10\",\n    \"status\": \"You are successfully logged in!\"\n}"
+				}
+			]
 		}
 	],
 	"auth": {
@@ -965,19 +1317,24 @@
 	],
 	"variable": [
 		{
-			"id": "fbd705a5-d409-47dc-ab11-719eec2c8b0b",
-			"key": "jwt_token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVjYjE3YjhiMDM3MzU4MTI5MzAiLCJpYXQiOjE2MDA1MzM4MTQsImV4cCI6MTYwMDUzNzQxNH0.nU8LKwsCYe71og9CFvFUdBUd6kBgN1mgqxaws1qjGgI"
+			"id": "cd1cb7cf-879d-4a7e-97c3-d5e50c098743",
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjYyNGVlOTE3YjhiMDM3MzU4MTI5MzIiLCJpYXQiOjE2MDA3NTIzNzMsImV4cCI6MTYwMDc1NTk3M30.v7zgQRR2oyGLpBXxngBaT-SfCkpwa2Y2fbDxHS-QcDE"
 		},
 		{
-			"id": "c727ca55-b3fa-4e48-936d-6cf19f5c4cef",
+			"id": "72265de9-2e74-46a4-92ed-bd9b203ea8d6",
 			"key": "basepath",
 			"value": "https://localhost:3443"
 		},
 		{
-			"id": "de48e84a-c3b3-4c02-9794-2c7684740f76",
+			"id": "9f2190a2-89bd-4ee6-969a-9e90f91d67d9",
+			"key": "dishId",
+			"value": "5f68db9dba2ebd28d5b77dd6"
+		},
+		{
+			"id": "4e891248-88b5-46f4-aa1b-40ea75275224",
 			"key": "dish_id",
-			"value": "5f625c038c4d8957850d366a"
+			"value": "5f68db9dba2ebd28d5b77dd6"
 		}
 	],
 	"protocolProfileBehavior": {}
