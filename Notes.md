@@ -38,6 +38,7 @@
 	 - 5.3.2. OAuth2 Tokens
 	 - 5.3.2. Authentication Flow From User's perspective
 	 - 5.3.3. Authentication Flow From client application's perspective
+6. Node from Meetups
 
 ## 1. Express
 
@@ -543,3 +544,38 @@ token
 Attitude
 Resilience: play in under all playing conditions
 longevity
+
+## 6. Node from Meetups
+
+IIFE: Immediately invoked function expression
+```js
+((function_arg) => {
+// func defination
+})()
+```
+- ``: Template string
+- if you want to exports function/variable from module
+```js
+module.exports = {
+  function_to_export,
+}
+```
+- Module Wrapper Function
+```js
+(function(exports, module, require, __filename, __dirname){
+// you entire code in file  
+})
+```
+- Event Loop
+```js
+console.log('hi');
+
+setTimeout(() =>{
+  // deferred
+  console.log('there');
+}, 0);
+
+console.log('hello');
+```
+- all call goes into call stack, but function like setTimeout, promise goes to Node API, after it done it works in API then gord to Event queue.
+- And call in Event queue get call when call stack get empty
