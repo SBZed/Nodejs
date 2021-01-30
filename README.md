@@ -579,3 +579,5 @@ console.log('hello');
 ```
 - all call goes into call stack, but function like setTimeout, promise goes to Node API, after it done it works in API then gord to Event queue.
 - And call in Event queue get call when call stack get empty
+
+THANK YOU!
