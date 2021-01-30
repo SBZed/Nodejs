@@ -30,14 +30,14 @@
      - 5.1.2 SSL/TLS
      - 5.1.3 Steps generated Secure Server
    - 5.2. CORS (Cross Origin Resource Sharing)
-	 - 5.2.1. Simple Cross Origin Requests
-	 - 5.2.2. Preflighted Requests
-	 - 5.2.3. Credentialed Requests
+   - 5.2.1. Simple Cross Origin Requests
+   - 5.2.2. Preflighted Requests
+   - 5.2.3. Credentialed Requests
    - 5.3. OAuth and User Authentication
-	 - 5.3.1. OAuth2 Roles
-	 - 5.3.2. OAuth2 Tokens
-	 - 5.3.2. Authentication Flow From User's perspective
-	 - 5.3.3. Authentication Flow From client application's perspective
+   - 5.3.1. OAuth2 Roles
+   - 5.3.2. OAuth2 Tokens
+   - 5.3.2. Authentication Flow From User's perspective
+   - 5.3.3. Authentication Flow From client application's perspective
 6. Node from Meetups
 
 ## 1. Express
@@ -479,59 +479,77 @@ app.all('*', (req, res, next) => {
 - Browsers restrict Cross-origin http requests initiated from within scripts e.g XMLHttpRequest(XHR), Fetch
 - **CORS is Solution!** - A mechanism to give web server cross-origin access controls
 - Type of Request:
+
 #### 5.2.1. Simple Cross Origin Requests
+
       - GET or POST request with body containing application/x-www-form-urlencoded, multipart/form-data or text/plain
-  - No custom header
-  - Can use Access-Control-Allow-Origin for not restricting access to certain origin.
+
+- No custom header
+- Can use Access-Control-Allow-Origin for not restricting access to certain origin.
+
 #### 5.2.2. Preflighted Requests
+
       - In the preflighted request, you expect that before the client sends the actual request, the client will send a **preflight request**.
-  - meaning that it contacts the server to obtain information from the server before the actual request is issued.
-  - This is specifically the case where you issue PUT and DELETE requests
-  - Any method that causes side effects on the server's data, like the PUT and the DELETE request, are specially mandated to follow the preflight approach.
-    - **preflight approach**:
-    1.  the client will send an HTTP OPTIONS request to the server side.
-    2.  in reply to that OPTIONS request message, the server will respond with the corresponding Access-Control-Allow-Headers, Access-Control-Allow-Origin, and Access-Control-Allow-Credentials header information in the reply to an OPTIONS message.
-    3.  Thereafter, the client will decide whether it can issue the cross-origin request or not based upon the response to the OPTIONS preflight request that the client sent.
+
+- meaning that it contacts the server to obtain information from the server before the actual request is issued.
+- This is specifically the case where you issue PUT and DELETE requests
+- Any method that causes side effects on the server's data, like the PUT and the DELETE request, are specially mandated to follow the preflight approach.
+  - **preflight approach**:
+  1.  the client will send an HTTP OPTIONS request to the server side.
+  2.  in reply to that OPTIONS request message, the server will respond with the corresponding Access-Control-Allow-Headers, Access-Control-Allow-Origin, and Access-Control-Allow-Credentials header information in the reply to an OPTIONS message.
+  3.  Thereafter, the client will decide whether it can issue the cross-origin request or not based upon the response to the OPTIONS preflight request that the client sent.
+
 #### 5.2.3. Credentialed Requests
-  - you expect the client to include credentials in the header of the request message.
+
+- you expect the client to include credentials in the header of the request message.
 
 ### 5.3. OAuth and User Authentication
+
 - In most websites, You can login using Facebook, google, github, twitter etc.
 - These social media account provider acts as authentication service providers using protocol called **OAuth**
-the passion is being obsessed about every little thing that can produce success for you
-Knowing your own game inside out
+  the passion is being obsessed about every little thing that can produce success for you
+  Knowing your own game inside out
 - OAuth2 is advancement of OAuth1 which focuses on simplifying client developement
 
-#### 5.3.1. OAuth 2	Roles
- - **Resource owner**: You, the user that authorizes a client application to access their account
- - **Client Application**: Application (website or app) that wants access to the resource server to obtain information about you
- - **Resource Server**: Server hosting protected data (e.g., your personal information)
- - **Authorization Server**: Server that issues an access token to the client application to request resource from the resource server
+#### 5.3.1. OAuth 2 Roles
+
+- **Resource owner**: You, the user that authorizes a client application to access their account
+- **Client Application**: Application (website or app) that wants access to the resource server to obtain information about you
+- **Resource Server**: Server hosting protected data (e.g., your personal information)
+- **Authorization Server**: Server that issues an access token to the client application to request resource from the resource server
+
 #### 5.3.2. OAuth 2 Tokens
+
 1. Access token: allows access to user data by the client application
-– Has limited lifetime
-– Need to be kept confidential
-– Scope: parameter used to limit the rights of the access 
-token
+   – Has limited lifetime
+   – Need to be kept confidential
+   – Scope: parameter used to limit the rights of the access
+   token
+
 - **Refresh token**: Used to refresh an expired access token
 - you will only send the access token through HTTPS, not HTTP.
 
 #### 5.3.2. Authentication Flow From User's perspective
+
 (Let assume you trying to access spotify using facebook account)
 **Client Application == Express Server in following explanation**
+
 1. you, as their(spotify) front end user, wants to access something from the Express(spotify) server application.
 2. The Express(spotify) server application will tell you that you authenticate yourself from Facebook and then obtain access token from Facebook.
 3. This access token is issued to front-end user(you) from Facebook when the user logs into their Facebook account.
 4. Now this access token is issued in the name of the client application(Spotify), which has already registered on Facebook.
 5. So, in order for the user to access Facebook to obtain his access token, the user(you) requires the **client ID** of the client application(spotify).
 6. So this client ID is embedded in the front-end application that this Express server(Spotify) will serve up for you.
+
 #### 5.3.3. Authentication Flow From client application's perspective
+
 1. when the Express server(spotify) tries to authenticate and obtain access to the user's profile from Facebook, the client application(spotify) will send client ID, the **client secret**, and access token(from user) to Facebook.
 2. Facebook, in turn, authorizes client application(spotify) to access the resource server in order to obtain the user's profile data(facebook account data).
 3. once the user's profile data is obtained from the Facebook resource server, then my Express server(spotify) is going to create an account for this particular user who has logged them with their Facebook account.
 4. Then, supply a JSON web token to the user, which the user can then use in order to access the resources that are stored on the Express server(spotify).
 
 ### 5.4. Facebook Authentication
+
 - login using facebook
 - go to https://developers.facebook.com/apps
 - create new app
@@ -539,7 +557,6 @@ token
 - in setting -> basic, Added App Domains e.g. https://localhost:3443
 - in setting -> basic, add platform as [website] e.g. https://localhost:3443
 - in setting -> advanced, click YES to Native or desktop app?
- 
 
 Attitude
 Resilience: play in under all playing conditions
@@ -548,36 +565,44 @@ longevity
 ## 6. Node from Meetups
 
 IIFE: Immediately invoked function expression
+
 ```js
 ((function_arg) => {
-// func defination
-})()
+	// func defination
+})();
 ```
+
 - ``: Template string
 - if you want to exports function/variable from module
+
 ```js
 module.exports = {
-  function_to_export,
-}
+	function_to_export,
+};
 ```
+
 - Module Wrapper Function
+
 ```js
-(function(exports, module, require, __filename, __dirname){
-// you entire code in file  
-})
+(function (exports, module, require, __filename, __dirname) {
+	// you entire code in file
+});
 ```
+
 - Event Loop
+
 ```js
 console.log('hi');
 
-setTimeout(() =>{
-  // deferred
-  console.log('there');
+setTimeout(() => {
+	// deferred
+	console.log('there');
 }, 0);
 
 console.log('hello');
 ```
+
 - all call goes into call stack, but function like setTimeout, promise goes to Node API, after it done it works in API then gord to Event queue.
 - And call in Event queue get call when call stack get empty
 
-THANK YOU!
+THANK YOU!!!
