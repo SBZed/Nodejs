@@ -2,45 +2,45 @@
 
 - Javascript used for server side.
 
-1. [Express](#1)
-   - 1.1. [Structure of Express file](#1.1)
-   - 1.2. [Routing](#1.2)
-   - 1.3. [Applying Css](#1.3)
-   - 1.4. [EJS](#1.4)    <a id="#1.4">[EJS]</a>
-   - 1.5. [Advantage of EJS](#1.5)    <a id="#1.5">Advantage of EJS</a>
-   - 1.6. [Middlewares](#1.6)    <a id="#1.6">Middlewares</a>
-2. [REST](#2)    <a id="#2">REST</a>
-   - 2.1. [Stateless Server](#2.1)    <a id="#2.1">Stateless Server</a>
-3. [Databases](#3)    <a id="#3">Databases</a>
-   - 3.1. [SQL Databases](#3.1)    <a id="#3.1">SQL Databases</a>
-   - 3.2. [NoSQL Databases](#3.2)    <a id="#3.2">NoSQL</a>
-   - 3.3. [MongoDB](#3.3)    <a id="#3.3">MongoDB</a>
-   - 3.4. [Mongoose ODM](#3.4)    <a id="#3.4">Mongoose ODM</a>
-   - 3.5. [Mongoose Population](#3.5)    <a id="#3.5">Mongoose Population</a>
-4. [Authentication](#4-authentication)    <a id="#4">Authentication</a>
-   - 4.1. [Types of Authentication:](#4.1)    <a id="#4.1">Types of Authentication:</a>
-   - 4.2. [Cookies Based Authentication](#4.2)    <a id="#4.2">Cookies Based Authentication</a>
-   - 4.3. [Sessions Based Authentication](#4.3)    <a id="#4.3">Sessions Based Authentication</a>
-     - 4.3.1 [Passport](#4.3.1)    <a id="#4.3.1">Passport</a>
-   - 4.4. [Token Based Authentication](#4.4)    <a id="#4.4">Token Based Authentication</a>
-     - 4.4.1 [JWT (JSON Web Token)](#4.4.1)    <a id="#4.4.1">JWT (JSON Web Token)</a>
-5. [Backend as a Service (BaaS)](#5)    <a id="#5">Backend as a Service (BaaS)</a>
-   - 5.1. [HTTPS ans Secure Communication](#5.1)    <a id="#5.1">HTTPS ans Secure Communication</a>
-     - 5.1.1 [Cryptography](#5.1.1)    <a id="#5.1.1">Cryptography</a>
-     - 5.1.2 [SSL/TLS](#5.1.2)    <a id="#5.1.2">SSL/TLS</a>
-     - 5.1.3 [Steps generated Secure Server](#5.1.3)    <a id="#5.1.3">Steps generated Secure Server</a>
-   - 5.2. [CORS (Cross Origin Resource Sharing)](#5.2)    <a id="#5.2">CORS (Cross Origin Resource Sharing)</a>
-   - 5.2.1. [Simple Cross Origin Requests](#5.2.1)    <a id="#5.2.1">Simple Cross Origin Requests</a>
-   - 5.2.2. [Preflighted Requests](#5.2.2)    <a id="#5.2.2">Preflighted Requests</a>
-   - 5.2.3. [Credentialed Requests](#5.2.3)    <a id="#5.2.3">Credentialed Requests</a>
-   - 5.3. [OAuth and User Authentication](#5.3)    <a id="#5.3">OAuth and User Authentication</a>
-   - 5.3.1. [OAuth2 Roles](#5.3.1)    <a id="#5.3.1">OAuth2 Roles</a>
-   - 5.3.2. [OAuth2 Tokens](#5.3.2)    <a id="#5.3.2">OAuth2 Tokens</a>
-   - 5.3.2. [Authentication Flow From User's perspective](#5.3.2)    <a id="#5.3.2">Authentication Flow From User's perspective</a>
-   - 5.3.3. [Authentication Flow From client application's perspective](#5.3.3)    <a id="#5.3.3">Authentication Flow From client application's perspective</a>
-6. [Node from Meetups](#6)    <a id="#6">Node from Meetups</a>
+1. Express
+   - 1.1. Structure of Express file
+   - 1.2. Routing
+   - 1.3. Applying Css
+   - 1.4. EJS
+   - 1.5. Advantage of EJS
+   - 1.6. Middlewares
+2. REST
+   - 2.1. Stateless Server
+3. Database
+   - 3.1. SQL Databases
+   - 3.2. NoSQL Databases
+   - 3.3. MongoDB
+   - 3.4. Mongoose ODM
+   - 3.5. Mongoose Population
+4. Authentication
+   - 4.1. Types of Authentication:
+   - 4.2. Cookies Based Authentication
+   - 4.3. Sessions Based Authentication
+     - 4.3.1 Passport
+   - 4.4. Token Based Authentication
+     - 4.4.1 JWT (JSON Web Token)
+5. Backend as a Service (BaaS)
+   - 5.1. HTTPS ans Secure Communication
+     - 5.1.1 Cryptography
+     - 5.1.2 SSL/TLS
+     - 5.1.3 Steps generated Secure Server
+   - 5.2. CORS (Cross Origin Resource Sharing)
+   - 5.2.1. Simple Cross Origin Requests
+   - 5.2.2. Preflighted Requests
+   - 5.2.3. Credentialed Requests
+   - 5.3. OAuth and User Authentication
+   - 5.3.1. OAuth2 Roles
+   - 5.3.2. OAuth2 Tokens
+   - 5.3.2. Authentication Flow From User's perspective
+   - 5.3.3. Authentication Flow From client application's perspective
+6. Node from Meetups
 
-## 1. <a id="#1">Express</a>
+## 1. Express
 
 - It is a framework for developing web apps with Node.js.
   Using frameworks helps make development a lot more efficient.
@@ -56,7 +56,7 @@ const app = express();
 
 - To start the server, we need to add the listen method to app.js, then run it in the terminal using the following command: node `file_name`.
 
-### 1.1. <a id="#1.1">Structure of Express file</a>
+### 1.1 Structure of Express file
 
 - To review, the typical structure of an Express.js app fig(which is usually a server.js or app.js file) roughly consists of these parts, in the order shown:
 
@@ -67,7 +67,7 @@ const app = express();
 5. Routes : A set of statements that defines server routes, endpoints, and pages
 6. Bootup : A set of statements that starts the server and makes it listen on a specific port for incoming requests
 
-### 1.2. <a id="#1.2">Routing</a>
+### 1.2 Routing
 
 - Determining how the app responds to a request to a particular URL is called routing.
 
@@ -82,7 +82,7 @@ app.get('/top', (req, res) => {
 
 - You can specify which view file to show on the browser using the res.render function.
 
-### 1.3. <a id="#1.3">Applying Css</a>
+### 1.3 Applying Css
 
 - store Css and image in folder
 - and use below line to access in code:
