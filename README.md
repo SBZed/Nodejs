@@ -17,7 +17,7 @@
    - 3.3. [MongoDB](#3.3)    <a id="#3.3">MongoDB</a>
    - 3.4. [Mongoose ODM](#3.4)    <a id="#3.4">Mongoose ODM</a>
    - 3.5. [Mongoose Population](#3.5)    <a id="#3.5">Mongoose Population</a>
-4. [Authentication](#4)    <a id="#4">Authentication</a>
+4. [Authentication](#4-authentication)    <a id="#4">Authentication</a>
    - 4.1. [Types of Authentication:](#4.1)    <a id="#4.1">Types of Authentication:</a>
    - 4.2. [Cookies Based Authentication](#4.2)    <a id="#4.2">Cookies Based Authentication</a>
    - 4.3. [Sessions Based Authentication](#4.3)    <a id="#4.3">Sessions Based Authentication</a>
